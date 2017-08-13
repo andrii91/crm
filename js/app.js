@@ -122,7 +122,7 @@ $(document).ready(function () {
   $('.mob-btn').click(function() {
         $('.menu').slideToggle();
         $(this).parents('nav').css({
-        	'background-color' : '#ffad00';
+        	'background-color' : '#ffad00',
         })
   });
   if ($(window).width() < 1200) {
