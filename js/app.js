@@ -1,1 +1,135 @@
-$(document).ready(function(){function t(t){var o=$(t).attr("href"),e=$(o).offset().top-n+20;$("html, body").animate({scrollTop:e},400)}function o(){var t,o=$(".section"),i=$(document).scrollTop(),c=o[o.length-1],l=$(c).height()<$(window).height();if(l)var r=$(c).offset().top,a=$(window).height()+$(document).scrollTop()-$(c).height()/2,s=a>r;l&&s?t=$(c).attr("id"):o.each(function(){var o=$(this).offset().top-n,e=o+$(this).outerHeight();i>=o&&i<=e&&(t=$(this).attr("id"))}),t?(e.find("li").removeClass("active"),e.find('a[href="#'+t+'"]').parent("li").addClass("active")):e.find("li").removeClass("active")}var e=$("nav"),n=e.outerHeight();$('a[href*="#"]:not([href="#"])').click(function(o){t(this),o.preventDefault()}),$(document).scroll(function(){o()}),$(document).scroll(function(){o()}),$(window).scroll(function(){return $("nav").toggleClass("fixed",$(window).scrollTop()>0)}),$(".review-carousel").owlCarousel({center:!0,items:1,loop:!0,nav:!0,dots:!0,navText:!1,margin:130}),$(".more").click(function(){$(this).parents().find(".more-content").slideToggle(500)}),$(".scroll-btn").click(function(){var t=$("#contacts").offset().top-0;$("body,html").animate({scrollTop:t},500)}),$(".mob-btn").click(function(){$(".menu").slideToggle()}),$(window).width()<1200&&$(".menu li").click(function(){$(".menu").hide()})});
+$(document).ready(function () {
+  // init nav object from dom
+  var nav = $('nav');
+  // get heigth of the nav
+  var navHeight = nav.outerHeight();
+
+  // click-trigger
+  $('a[href*="#"]:not([href="#"])').click(function (event) {
+    scrollToSection(this);
+    event.preventDefault();
+  });
+
+  // scroll-trigger
+  $(document).scroll(function () {
+    activateCurrentSection();
+  });
+
+  // get target position and scrolls to it
+  function scrollToSection(self) {
+    // get the target href
+    var href = $(self).attr('href');
+
+    // get the target position
+    var targetPos = $(href).offset().top - navHeight + 20;
+
+    // scroll to target
+    $('html, body').animate({
+      scrollTop: targetPos
+    }, 400);
+  }
+
+  /*
+   * Updates active section on scroll
+   */
+  // scroll-trigger
+  $(document).scroll(function () {
+    activateCurrentSection();
+  });
+
+  /*
+   * Updates active section on scroll
+   */
+  function activateCurrentSection() {
+    var id; // init the id of the element that will be activated
+
+    // get all sections
+    var sections = $('.section');
+
+    // store current position on the page when scroll is triggered
+    var pos = $(document).scrollTop();
+
+    /*
+     * Exception: if last section is <100% of the screen height
+     * make it active when 50% of it is visible.
+     * Otherwise the last section would never activate.
+     */
+    var lastSection = sections[sections.length - 1]; // get last section
+    var lastSectionTooSmall = $(lastSection).height() < $(window).height();
+
+    if (lastSectionTooSmall) {
+      var lastSectionTopPos = $(lastSection).offset().top;
+      // lastSectionTriggerPos is true if 50% of the last section is visible
+      var lastSectionTriggerPos = $(window).height() + $(document).scrollTop() - ($(lastSection).height() / 2);
+      var lastSectionInView = lastSectionTriggerPos > lastSectionTopPos;
+    }
+
+    if (lastSectionTooSmall && lastSectionInView) {
+      id = $(lastSection).attr('id');
+
+    } else { // else last section is >= 100% of the view check all sections to find the top one
+      sections.each(function () {
+        var top = $(this).offset().top - navHeight; // get the top & bottom position of the section
+        var bottom = top + $(this).outerHeight();
+
+        /*
+         * if the current position is higher (deeper on the page) than the top of the section
+         * and it is smaller (heiger on the page) than the bottom of the section
+         * it is the active section.
+         */
+        if (pos >= top && pos <= bottom) {
+          id = $(this).attr('id'); // store the id of this section
+        }
+      });
+    }
+
+    /*
+     if an id was set before, activate the section in the nav
+     */
+    if (id) {
+      nav.find('li').removeClass('active');
+      nav.find('a[href="#' + id + '"]').parent('li').addClass('active');
+    } else {
+      nav.find('li').removeClass('active');
+    }
+  }
+
+  $(window).scroll(function () {
+    return $('nav').toggleClass("fixed", $(window).scrollTop() > 0);
+  });
+
+  $('.review-carousel').owlCarousel({
+    center: true,
+    items: 1,
+    loop: true,
+    nav: true,
+    dots: true,
+    navText: false,
+    margin: 130
+  });
+  
+  $('.more').click(function(){
+    $(this).parents().find('.more-content').slideToggle(500);
+  });
+  $('.scroll-btn').click(function () {
+    var destination = $("#contacts").offset().top - 0;
+    $("body,html").animate({
+      scrollTop: destination
+    }, 500);
+  });
+
+
+  $('.mob-btn').click(function() {
+        $('.menu').slideToggle();
+        $(this).parents('nav').css({
+        	'background-color' : '#ffad00';
+        })
+  });
+  if ($(window).width() < 1200) {
+      $('.menu li').click(function() {
+          $('.menu').hide();
+      });
+
+  }
+
+});
