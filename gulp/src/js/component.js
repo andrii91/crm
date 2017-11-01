@@ -105,11 +105,203 @@ $(document).ready(function () {
     nav: true,
     dots: true,
     navText: false,
-    margin: 130
+    margin: 130,
+    responsive:{
+        600:{
+            margin:27
+        },
+      1200:{
+            margin:130
+        }
+    }
   });
-  
-  $('.more').click(function(){
-    $(this).parents().find('.more-content').slideToggle(500);
+
+  if ($(window).width() < 1200) {
+    $('.carousel-automation').addClass('owl-carousel');
+
+    $('.carousel-automation.owl-carousel').owlCarousel({
+      items: 3,
+      loop: true,
+      nav: false,
+      dots: true,
+      navText: false,
+      margin: 0,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1,
+        },
+        // breakpoint from 768 up
+        768: {
+          items: 2,
+        },
+        1024: {
+          items: 3,
+        }
+      }
+    });
+    $('.integration-carousel.owl-carousel').owlCarousel({
+      loop: true,
+      nav: false,
+      dots: true,
+      navText: false,
+      margin: 0,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        767: {
+          items: 2,
+        }
+      }
+    });
+
+  } else {
+    $('.carousel-automation').removeClass('owl-carousel')
+  }
+  if ($(window).width() < 768) {
+    $('.integration-carousel').addClass('owl-carousel');
+    $('.author-carousel').addClass('owl-carousel');
+  } else {
+    $('.integration-carousel').removeClass('owl-carousel');
+    $('.author-carousel').removeClass('owl-carousel');
+  }
+
+  if ($(window).width() < 768) {
+    $('.clients-carousel').owlCarousel({
+      loop: true,
+      nav: false,
+      dots: true,
+      navText: false,
+      margin: 0,
+      responsive: {
+        0: {
+          items: 1,
+        }
+      }
+    });
+    $('.author-carousel').owlCarousel({
+      loop: true,
+      nav: false,
+      dots: true,
+      navText: false,
+      margin: 0,
+      responsive: {
+        0: {
+          items: 1,
+        }
+      }
+    });
+
+    $('.for_whom-carousel').addClass('owl-carousel')
+  } else {
+    $('.for_whom-carousel').removeClass('owl-carousel')
+  }
+
+  $('.carousel-automation.owl-carousel').owlCarousel({
+    items: 3,
+    loop: true,
+    nav: false,
+    dots: true,
+    navText: false,
+    margin: 0,
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1,
+      },
+      // breakpoint from 768 up
+      768: {
+        items: 2,
+      },
+      1024: {
+        items: 3,
+      }
+    }
+  });
+  $('.integration-carousel.owl-carousel').owlCarousel({
+    loop: true,
+    nav: false,
+    dots: true,
+    navText: false,
+    margin: 0,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      767: {
+        items: 2,
+      }
+    }
+  });
+  $('.for_whom-carousel.owl-carousel').owlCarousel({
+    loop: true,
+    nav: false,
+    dots: true,
+    navText: false,
+    margin: 0,
+    responsive: {
+      0: {
+        items: 1,
+      }
+    }
+  });
+
+
+
+  /*  $(window).resize(function () {
+      $('.carousel-automation.owl-carousel').owlCarousel({
+        items: 3,
+        loop: true,
+        nav: false,
+        dots: true,
+        navText: false,
+        margin: 0,
+        responsive: {
+          // breakpoint from 0 up
+          0: {
+            items: 1,
+          },
+          // breakpoint from 768 up
+          768: {
+            items: 2,
+          },
+          1024: {
+            items: 3,
+          }
+        }
+      });
+      $('.integration-carousel.owl-carousel').owlCarousel({
+        loop: true,
+        nav: false,
+        dots: true,
+        navText: false,
+        margin: 0,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          767: {
+            items: 2,
+          }
+        }
+      });
+
+      if ($(window).width() < 1200) {
+        $('.carousel-automation').addClass('owl-carousel')
+      } else {
+        $('.carousel-automation').removeClass('owl-carousel')
+      }
+      if ($(window).width() < 768) {
+        $('.integration-carousel').addClass('owl-carousel')
+      } else {
+        $('.integration-carousel').removeClass('owl-carousel')
+      }
+
+    });*/
+
+  $('.more').click(function () {
+    $(this).parents('p').toggleClass('active');
   });
   $('.scroll-btn').click(function () {
     var destination = $("#contacts").offset().top - 0;
@@ -119,13 +311,18 @@ $(document).ready(function () {
   });
 
 
-  $('.mob-btn').click(function() {
-        $('.menu').slideToggle();
+  $('.mob-btn').click(function () {
+    $(this).toggleClass('active');
+    $('.menu').toggleClass('active');
+    $('.mob-overflow').toggleClass('active');
   });
   if ($(window).width() < 1200) {
-      $('.menu li').click(function() {
-          $('.menu').hide();
-      });
+    $('.menu li, .mob-btn.active').click(function () {
+      $('.mob-btn').removeClass('active');
+      $('.menu').removeClass('active');
+      $('.mob-overflow').removeClass('active');
+
+    });
 
   }
 

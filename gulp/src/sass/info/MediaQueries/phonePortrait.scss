@@ -4,6 +4,11 @@
     @import '../mobile';
   
   & {
-	
+    .mar-top70 {
+      margin-top: 41px;
+    }
+    .integration-carousel {
+      margin: 0;
+    }
   }
 }

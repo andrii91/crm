@@ -1,185 +1,666 @@
 & {
   .menu {
-  	display: none;
-  	float: none;
-  	li {
-  		display: block;
-  		margin: 0 0 10px;
-  		text-align: left;
-  		a {
-  			text-align: left;
-  		}
-  	}
+    margin: 0;
+    float: none;
+    position: fixed;
+    top: 0;
+    right: -200%;
+    max-width: 480px;
+    width: 100%;
+    padding-top: 70px;
+    height: 100vh;
+    background-image: linear-gradient(-45deg, #ff7f00 0%, #ffbf00 100%);
+    z-index: 999;
+    transition: 0.5s;
+    overflow-y: auto;
+    &.active {
+      right: 0;
+    }
+    li {
+      display: block;
+      margin: 0 0 10px;
+      text-align: center;
+      a {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 40px;
+      }
+    }
   }
   .mob-btn {
-  	display: block;
+    display: block;
+    margin-top: 15px;
+    transition: 1s;
+    &.active {
+      position: absolute;
+      top: 15px;
+      right: 22px;
+      z-index: 9991;
+      width: 26px;
+      height: 26px;
+      border: 0;
+      &:after {
+        content: "";
+        height: 2px;
+        width: 32px;
+        background: #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotateZ(45deg);
+      }
+      &:before {
+        content: "";
+        height: 2px;
+        width: 32px;
+        background: #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotateZ(-45deg);
+        border: 0;
+      }
+    }
   }
   .head {
-  	padding-top: 100px;
-  	text-align: center;
+    padding-top: 150px;
+    padding-bottom: 90px;
+    text-align: center;
+    background: url('../images/img-logo.png'), linear-gradient(-45deg, #ff7f00 0%, #ffbf00 100%);
+    background-position: center;
   }
   br {
-  	display: none;
+    display: none;
   }
-  .head-title, .for_whom-title, .worth-title, .zoho_crm-title, 
-  .automation-title, .integration-title, .clients-title, .review-title,
+  .head-title {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30px;
+    max-width: 220px;
+    margin: 0 auto 22px;
+  }
+  .for_whom-title {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 50px;
+  }
+  .worth-title {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30px;
+    max-width: 215px;
+    margin: 0 auto 40px;
+  }
+  .zoho_crm-title {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30px;
+  }
+  .automation-title {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30px;
+    margin-bottom: 35px;
+  }
+  .integration-title {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30px;
+    max-width: 160px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .review-title {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: center;
+    margin-bottom: 35px;
+  }
+  .clients-title,
   .author-title {
-    font-size: 30px;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: center;
+    margin-bottom: 35px;
+  }
+  .automation-week ul {
+    text-align: left;
+  }
+  .integration-title {
+    margin-bottom: 10px;
+  }
+  .head-img img {
+    position: static;
+    width: 100%;
+  }
+  .head-img {
+    height: auto;
+  }
+
+  .for_whom {
+    padding: 59px 0;
+    text-align: center;
+  }
+  .for_whom-info {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+  .for_whom-box {
+    margin-top: 0;
+  }
+  .for_whom {
+    .owl-carousel .owl-item img {
+      width: inherit;
+      display: inline-block;
+    }
+  }
+  .zoho_crm-info {
+    font-size: 18px;
     line-height: 1;
-	}
-	.integration-title {
-		margin-bottom: 10px;
-	}
-	.head-img img {
-		position: static;
-		width: 100%;
-	}
-	.head-img {
-		height: auto;
-	}
-	.for_whom, .worth {
-		padding: 30px 0;
-	}
-	.for_whom-info, .zoho_crm-info {
-		font-size: 18px;
-		line-height: 1;
-	}
-	.for_whom-box {
-		text-align: center;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.worth-box h4 {
-		font-size: 20px;
-		line-height: 1;
-		margin-bottom: 15px;
-	}
-	.worth-crm:before {
-		display: none;
-	}
-	.worth-crm li:nth-child(5) {
-		top: 74px;
-	}
-	.worth-img img {
-		position: static;
-		width: 100%;
-		margin-left: -30px;
-	}
-	.worth-img {
-		min-height: 100%;
-	}
-	.crm-info li:nth-child(1) {
-		background: none;
-		width: 100%;
-		height: 100%;
-		line-height: 1;
-		text-align: center;
-	}
-	.crm-info li {
-		position: static;
-	}
-	.worth-img.min-h557 {
-		min-height: 100%;
-	}
-	.img-left {
-		margin-top: 30px;
-	}
-	.img-left img {
-		margin-right: -30px;
-		width: 100%;
-	}
-	.worth {
-		overflow-x: hidden;
-	}
-	.client-list {
-		width: 100%;
-		text-align: center;
-	}
-	.client-list li:nth-child(2), .client-list li:nth-child(7), 
-	.client-list li:nth-child(3), .client-list li:nth-child(8), 
-	.client-list li:nth-child(4), .client-list li:nth-child(6) {
-		margin-right: 0;
-		margin-left: 0;
-	}
-	.client-list li:nth-child(5):before {
-		display: none;
-	}
-	.client-list li:nth-child(5) {
-		margin: 0 auto 40px;
-		display: block;
+  }
+  .for_whom-box {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    h4 {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 25px;
+    }
+  }
+  .worth-box h4 {
+    font-size: 20px;
+    line-height: 1;
+    margin-bottom: 15px;
+  }
+  .worth-crm:before {
+    display: none;
+  }
+  .worth-crm li:nth-child(5) {
+    top: 74px;
+  }
+  .worth-img img {
+    //    position: static;
+    width: 100%; //    margin-left: -30px;
+  }
+  .worth-img {
+    min-height: 100%;
+  }
+  .crm-info li:nth-child(1) {
+    background: none;
+    width: 100%;
+    height: 100%;
+    line-height: 1;
+    text-align: center;
+  }
+  .crm-info li {
+    position: static;
+  }
+  .worth-img.min-h557 {
+    min-height: 100%;
+  }
+  .img-left {
+    margin-top: 30px;
+  }
+  .img-left img {
+    margin-right: -30px;
+    width: 100%;
+  }
+  .worth {
+    overflow-x: hidden;
+  }
+  .client-list {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0 29px;
+    li {
+      font-size: 12px;
+      font-weight: 400;
+      display: inline-block;
+      height: inherit;
+      margin: 5px 0;
+      span {
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 14px;
+      }
+      &:first-child,
+      &:last-child {
+        max-width: 170px;
+      }
+      &:nth-child(2),
+      &:nth-child(3) {
+        max-width: 135px;
+        margin: 5px 0;
+      }
+      &:nth-child(4),
+      &:nth-child(6) {
+        max-width: 108px;
+        margin: 5px 0;
+      }
+      &:nth-child(5) {
+        width: 53px;
+        height: 53px;
+        line-height: 2;
+        margin: 0px;
+        span {
+          font-size: 15px;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+      }
+      /*&:nth-child(6) {
+        max-width: 100px;
+        margin: 0;
+      }*/
+      &:nth-child(7) {
+        margin: 0;
+        max-width: 110px;
+      }
+      &:nth-child(8) {
+        margin: 0;
+        max-width: 110px;
+      }
+    }
+  }
+  .client-list li:nth-child(5):before {
+    display: none;
+  }
+  /*  .client-list li:nth-child(2),
+  .client-list li:nth-child(7),
+  .client-list li:nth-child(3),
+  .client-list li:nth-child(8),
+  .client-list li:nth-child(4),
+  .client-list li:nth-child(6) {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .client-list li:nth-child(5):before {
+    display: none;
+  }
+  .client-list li:nth-child(5) {
+    margin: 0 auto 40px;
+    display: block;
 
-	}
-	.client-list li:first-child, .client-list li:last-child {
-		max-width: 300px;
-		width: 100%;
-	}
-	.client, .img-right {
-		margin-top: 30px;
-	}
-	.img-right img {
-		margin-left: -30px;
-		width: 100%;
-	}
-	.worth {
-		margin-bottom: 0;
-	}
-	.free_crm, .zoho_crm, .review {
-		padding: 30px 0;
-	}
-	.free_crm-form {
-		padding: 20px;
-		min-height: 100%;
-	}
-	.row {
-		.row {
-			margin: 0;
-			[class*="col-"] {
-				padding: 0;
-			}
-		}
-	}
-	.integration, .clients {
-		text-align: center;
-		padding: 30px 0;
-	}
+  }
+  .client-list li:first-child,
+  .client-list li:last-child {
+    max-width: 300px;
+    width: 100%;
+  }*/
+  .img-right img {
+    margin-left: -30px;
+    width: 100%;
+  }
+  .worth {
+    margin-bottom: 0;
+    padding: 61px 0 0;
+    text-align: center;
+    .al-center {
+      .col5,
+      .col7,
+      .col8,
+      .col4 {
+        position: static;
+        transform: translateX(0);
+        float: none;
+        width: 100%;
+      }
+    }
+    img {
+      width: 100%;
+      margin: 28px 0 38px;
+    }
+  }
+  .worth-img.cilcle_small img {
+    margin: 0;
+    width: 380px;
+  }
+  .img-left .worth-box ul li {
+    text-align: left;
+  }
+  .worth-img:before {
+    display: none;
+  }
+  .free_crm {
+    padding: 60px 0;
+    text-align: center;
+  }
+  .free_crm-box {
+    h2 {
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 25px;
+    }
+    ul {
+      text-align: left;
+      margin-bottom: 40px;
+      li {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+      }
+    }
+  }
+  .zoho_crm {
+    padding: 60px 0;
+    text-align: center;
+  }
+  .review {
+    padding: 60px 0;
+    background-size: 65%;
+    background-position-x: center;
+  }
+  .free_crm-form {
+    padding: 40px 20px;
+    min-height: 100%;
+    h4 {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 25px;
+      margin-bottom: 10px;
+    }
+  }
+  .row {
+    .row {
+      margin: 0;
+      [class*="col-"] {
+        padding: 0;
+      }
+    }
+  }
+  .img-width {
+    img {
+      width: 100%;
 
-	.integration-info {
-		text-align: left;
-	}
-	.recommendation {
-		background-image:linear-gradient(-45deg,#ff7f00 0,#ffbf00 100%);
-		padding: 30px 0;
-	}
-	.recommendation-form {
-		height: auto;
-		button {
-			width: 100%;
-		}
-	}
-	.clients-list li:nth-child(1), .clients-list li:nth-child(5), .clients-list li:nth-child(9) {
-	    margin-left: 41px;
-	} 
-	.clients-list li:nth-child(12), .clients-list li:nth-child(4), .clients-list li:nth-child(8) {
-		margin-right: 41px;
-	}
-	.review .item {
-		padding: 9px;
-	}
-	.owl-nav {
-		display: none;
-	}
-	.author-box {
-		padding: 15px;
-		margin-left: auto;
-		margin-left: auto;
-	}
-	.author-img {
-		padding-right: 15px;
-	}
-	.author, .contacts {
-		padding: 30px 0;
-	}
-	.integration-box {
-		max-width: 100%;
-	}
+    }
+  }
+  .integration {
+    padding: 59px 0 58px;
+    text-align: center;
+  }
+  .clients {
+    text-align: center;
+    padding: 60px 0;
+    background-size: 110%;
+    background-position: center 35px;
+  }
+  .integration {
+    .item {
+      text-align: left;
+    }
+  }
+  .integration-info {
+    &:before {
+      display: none;
+    }
+    margin: 0 auto;
+    padding: 0;
+  }
+  .recommendation {
+    background-image: linear-gradient(-45deg, #ff7f00 0, #ffbf00 100%);
+    padding: 60px 0;
+    text-align: center;
+  }
+  .recommendation-form {
+    height: 100%;
+    margin-top: 35px;
+    background-color: transparent;
+    input {
+      height: 62px;
+      border-radius: 30px;
+      background-color: #ffffff;
+      max-width: 100%;
+      width: 100%;
+    }
+    button {
+      width: 100%;
+      max-width: 238px;
+      float: none;
+      margin-top: 18px;
+    }
+  }
+  /*  .clients-list li:nth-child(1),
+  .clients-list li:nth-child(5),
+  .clients-list li:nth-child(9) {
+    margin-left: 41px;
+  }
+  .clients-list li:nth-child(12),
+  .clients-list li:nth-child(4),
+  .clients-list li:nth-child(8) {
+    margin-right: 41px;
+  }*/
+  .review .item {
+    padding: 9px;
+  }
+  .owl-nav {
+    display: none;
+  }
+  .author-box {
+    padding: 20px;
+    margin-left: auto;
+    margin-left: auto;
+    ul {
+      margin-top: 24px;
+      li {
+        padding-left: 16px;
+        &:before {
+          left: 0;
+        }
+      }
+    }
+  }
+  .author-img {
+    padding-right: 15px;
+  }
+  .author {
+    padding: 60px 0 28px;
+  }
+  .contacts {
+    padding: 60px 0 30px;
+    text-align: center;
+  }
+  .integration-box {
+    max-width: 100%;
+  }
+  .automation-week ul li {
+    padding-right: 0;
+  }
+  .automation-week {
+    max-width: 100%;
+  }
+  .automation-week h4:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .automation-week h4 {
+    text-align: center
+  }
+  .integration-box h4 {
+    margin-top: 29px;
+    font-size: 20px;
+    margin-bottom: 22px;
+  }
+  .owl-carousel .owl-item .integration-logo img {
+    width: auto;
+    display: inline-block;
+  }
+  .integration-box {
+    text-align: center;
+  }
+  .xs-none {
+    display: none;
+  }
+
+  .head-info {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    max-width: 150px;
+    margin: 0 auto 20px;
+  }
+
+
+
+  .worth-box {
+    h4 {
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 25px;
+    }
+  }
+
+  .zoho_crm-box {
+    margin-top: 40px;
+    padding-left: 0;
+    &:before {
+      display: none;
+    }
+    h4 {
+      margin-bottom: 15px;
+      min-height: inherit;
+    }
+
+  }
+
+  .zoho_crm-info {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    max-width: 235px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .zoho_crm {
+    br {
+      display: block;
+    }
+  }
+
+  .automation {
+    background-size: 100%;
+    padding: 60px 0;
+    text-align: center;
+  }
+
+  .recommendation-title {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 25px;
+    margin-bottom: 31px;
+  }
+
+  .recommendation-info {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  .clients-list {
+    display: none;
+    .clients-item {
+      margin: 40px 0;
+    }
+  }
+
+
+  .review-box .review-content .more {
+    height: 9px;
+    bottom: 5px;
+    background: #fff;
+    line-height: 12px;
+    width: 30px;
+  }
+
+  .clients-carousel.owl-carousel.owl-loaded {
+    display: block;
+    .owl-dots {
+      margin-top: 0;
+    }
+    .owl-dot {
+      background-color: #ff7200;
+      opacity: .2;
+    }
+    .owl-dots .owl-dot.active {
+      opacity: 1;
+    }
+    img {
+      display: inline-block;
+      width: inherit;
+      max-width: 120px;
+      max-height: 60px;
+      transition: all .2s ease-out;
+      -webkit-transition: all .2s ease-out;
+      filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      -ms-filter: grayscale(100%);
+      -o-filter: grayscale(100%);
+      filter: grayscal;
+      &:hover {
+        filter: grayscale(0%);
+        -moz-filter: grayscale(0%);
+        -ms-filter: grayscale(0%);
+        -o-filter: grayscale(0%);
+        filter: grayscal;
+      }
+    }
+    .clients-item {
+      display: block;
+      margin-bottom: 40px;
+    }
+  }
+
+
+
+  .review-carousel {
+    .row {
+      margin: 0;
+    }
+    .col-lg-11 {
+      padding-left: 10px;
+    }
+  }
+
+  .review-box {
+    h4 {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 25px;
+      margin: 0 0 10px;
+    }
+    span {
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 18px;
+    }
+  }
+
+  .review-box .review-content {
+    margin-top: 25px;
+  }
+
+  .contacts-title {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 25px;
+    margin-bottom: 40px;
+  }
+
+  .contacts-box {
+    .item {
+      a {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+      }
+    }
+  }
+
+  .footer {
+    margin-top: 30px;
+  }
 }
