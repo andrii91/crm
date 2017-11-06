@@ -176,7 +176,7 @@ position: relative;
 }
 
 .for_whom {
-  padding: 110px 0;
+  padding: 110px 0 22px;
   background: #fff;
 }
 
@@ -194,11 +194,12 @@ position: relative;
   font-size: 20px;
   font-weight: 400;
   line-height: 50px;
+  margin-bottom: 35px;
 }
 
 .for_whom-box {
   max-width: 267px;
-  margin-top: 78px;
+  margin-bottom: 78px;
   h4 {
     color: #121212;
     font-family: "Proxima Nova Bold";
@@ -706,7 +707,7 @@ position: relative;
 }
 
 .zoho_crm {
-  padding: 119px 0;
+  padding: 119px 0 50px;
   background: url(../images/crm.png) no-repeat;
   background-position-x: center;
   background-position-y: 50px; 
@@ -726,13 +727,13 @@ position: relative;
   font-size: 20px;
   font-weight: 400;
   line-height: 50px;
-  margin-bottom: 0;
+  margin-bottom: 35px;
 }
 
 
 .zoho_crm-box {
   padding-left: 100px;
-  margin-top: 77px;
+  margin-bottom: 77px;
   &:before {
     content: attr(data-title);
     color: #ff7200;
@@ -747,7 +748,7 @@ position: relative;
     border-radius: 50%;
     position: absolute;
     left: 15px;
-    top: 77px;
+    top: 0;
     text-align: center;
   }
   h4 {
@@ -1657,4 +1658,134 @@ opacity: 0.5;
 }
 .max-width724 {
   max-width: 724px; 
+}
+
+.modal {
+  position: fixed;
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  outline: 0;
+  opacity: 0;
+  background-color: #fff;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  max-width: 410px;
+  min-width: 300px;
+  height: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateX(-50%) translateY(-50%);
+  transition: all .3s;
+  transition: all .3s;
+  padding: 0px;
+}
+
+.modal-content {
+  .free_crm-form {
+    margin: 0;
+    max-width: 100%;
+    min-height: auto;
+  }
+}
+.overl-h {
+  overflow: hidden
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  background: #000;
+  opacity: .8;
+  z-index: 1000
+}
+
+.modal-btn {
+  cursor: pointer
+}
+
+.popup__close {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  cursor: pointer;
+  opacity: .5;
+  &:after {
+        content: "";
+        height: 2px;
+        width: 24px;
+        background: #000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotateZ(45deg);
+      }
+      &:before {
+        content: "";
+        height: 2px;
+        width: 24px;
+        background: #000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotateZ(-45deg);
+        border: 0;
+      }
+}
+
+.popup__close:hover {
+  opacity: 1
+}
+.up-btn {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  border-radius: 50%;
+  background: #f50;
+  z-index: 999;
+  box-shadow: 5px 9px 20px rgba(39,23,0,.2);
+  transform: perspective(1px) translateZ(0);
+  cursor: pointer;
+  &:hover {
+    &:after {
+      transform: scale(1);
+    }
+  }
+  &:before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: rotateZ(-45deg) translateX(-20%) translateY(-50%);
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(0deg,#f50 0,red 100%);
+    box-shadow: 0 0 20px 0 rgba(39,23,0,.3);
+    transform: scale(0);
+    border-radius: 25px;
+    transition-property: transform;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
+  }
 }

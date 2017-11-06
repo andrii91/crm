@@ -26,7 +26,7 @@ $(document).ready(function () {
     // scroll to target
     $('html, body').animate({
       scrollTop: targetPos
-    }, 400);
+    }, 1000);
   }
 
   /*
@@ -304,7 +304,7 @@ $(document).ready(function () {
     $(this).parents('p').toggleClass('active');
   });
   $('.scroll-btn').click(function () {
-    var destination = $("#contacts").offset().top - 0;
+    var destination = $(".free_crm").offset().top - 0;
     $("body,html").animate({
       scrollTop: destination
     }, 500);
@@ -325,5 +325,29 @@ $(document).ready(function () {
     });
 
   }
+
+  $('.modal-btn').click(function(e) {
+        e.preventDefault;
+        $('#' + $(this).data('modal')).show('1000');
+        $('#' + $(this).data('modal')).animate({
+            opacity: 1,
+        });
+        $('body').addClass('overl-h');
+        $('.overlay').show('1000');
+    });
+    $('.overlay, .popup__close').click(function() {
+        $('body').removeClass('overl-h');
+        $('.modal').hide('1000');
+        $('.overlay').hide('1000');
+        $('.modal').animate({
+            opacity: 0,
+        });
+    });
+
+    $('.up-btn').click(function() {
+      $("body,html").animate({
+            scrollTop: 0
+          }, 500);
+    });
 
 });

@@ -31,7 +31,7 @@
       <div class="row">
         <div class="col">
           <a href="/" class="logo-img">
-            <img src="images/logo.png" alt="">
+            <img src="images/logo.svg" alt="">
           </a>
           <div class="mob-btn"></div>
           <button class="order-btn scroll-btn btn-tablet">Заказать презентацию</button>
@@ -57,7 +57,7 @@
         <div class="offset-lg-1 col-lg-7 col-md-12">
           <h1 class="head-title">Готовая настройка Zoho CRM<br> для образовательного бизнеса</h1>
           <p class="head-info">Запустим нашу CRM у вас за 3 недели!</p>
-          <button class="order-btn scroll-btn">Заказать презентацию</button>
+          <button class="order-btn modal-btn" data-modal="modal_1">Заказать презентацию</button>
         </div>
         <div class="col-lg-4 col-md-12 xs-none">
           <div class="head-img">
@@ -678,6 +678,22 @@
       </div>
     </div>
   </section>
+
+  <div class="overlay"></div>
+  <div class="modal" id="modal_1">
+        <div class="popup__close icon-close"></div>
+        <div class="modal-content">
+          <form action="" class="free_crm-form" method="post">
+            <h4>Бесплатная индивидуальная презентация</h4>
+            <input type="text" name="name" placeholder="Имя" required="">
+            <input type="email" name="email" placeholder="E-mail" required="">
+            <input type="tel" name="Телефон" placeholder="Телефон" required="">
+            <button type="submit" class="order-btn">Отправить заявку</button>
+          </form>
+        </div>
+      </div>
+      <div class="up-btn"></div>
+
   <script src="js/vendor.js"></script>
   <script src="js/app.js"></script>
 </body>
