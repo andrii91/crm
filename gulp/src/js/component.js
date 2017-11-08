@@ -243,62 +243,13 @@ $(document).ready(function () {
     responsive: {
       0: {
         items: 1,
+      },
+      700: {
+        items: 2,
       }
     }
   });
 
-
-
-  /*  $(window).resize(function () {
-      $('.carousel-automation.owl-carousel').owlCarousel({
-        items: 3,
-        loop: true,
-        nav: false,
-        dots: true,
-        navText: false,
-        margin: 0,
-        responsive: {
-          // breakpoint from 0 up
-          0: {
-            items: 1,
-          },
-          // breakpoint from 768 up
-          768: {
-            items: 2,
-          },
-          1024: {
-            items: 3,
-          }
-        }
-      });
-      $('.integration-carousel.owl-carousel').owlCarousel({
-        loop: true,
-        nav: false,
-        dots: true,
-        navText: false,
-        margin: 0,
-        responsive: {
-          0: {
-            items: 1,
-          },
-          767: {
-            items: 2,
-          }
-        }
-      });
-
-      if ($(window).width() < 1200) {
-        $('.carousel-automation').addClass('owl-carousel')
-      } else {
-        $('.carousel-automation').removeClass('owl-carousel')
-      }
-      if ($(window).width() < 768) {
-        $('.integration-carousel').addClass('owl-carousel')
-      } else {
-        $('.integration-carousel').removeClass('owl-carousel')
-      }
-
-    });*/
 
   $('.more').click(function () {
     $(this).parents('p').toggleClass('active');
@@ -328,17 +279,17 @@ $(document).ready(function () {
 
   $('.modal-btn').click(function(e) {
         e.preventDefault;
-        $('#' + $(this).data('modal')).show('1000');
+        $('#' + $(this).data('modal')).show();
         $('#' + $(this).data('modal')).animate({
             opacity: 1,
         });
         $('body').addClass('overl-h');
-        $('.overlay').show('1000');
+        $('.overlay').show();
     });
     $('.overlay, .popup__close').click(function() {
         $('body').removeClass('overl-h');
-        $('.modal').hide('1000');
-        $('.overlay').hide('1000');
+        $('.modal').hide();
+        $('.overlay').hide();
         $('.modal').animate({
             opacity: 0,
         });

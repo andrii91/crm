@@ -4,6 +4,14 @@
     @import '../mobile';
 
     & {
-      
+      .client-list {
+      	max-width: 350px;
+      	margin-right: auto;
+      	margin-left: auto;
+      }
+      .free_crm-form {
+      	margin-right: auto;
+      	margin-left: auto;
+      }
     }
 }

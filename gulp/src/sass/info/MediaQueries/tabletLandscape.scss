@@ -2,4 +2,30 @@
 
 @media #{$tabletLandscape} {
     @import '../desktop';
+    .author-box {
+      text-align: left;
+    }
+    .head {
+
+    	.head-img {
+    		padding-top: 80px
+    	}
+    }
+    .recommendation {
+    	br {
+    		display: none;
+    	}
+    	.recommendation-form input {
+			padding-left: 0;
+			padding-right: 0
+    	}
+	    background-image: url(../images/recommendation-img.png),linear-gradient(-45deg,#ff7f00 0,#ffbf00 100%);
+	    position: relative;
+	    padding: 70px 0;
+	    background-repeat: no-repeat;
+	    background-position: 100% center;
+	}
+	.author-box {
+	    min-height: 425px;
+	}
 }
